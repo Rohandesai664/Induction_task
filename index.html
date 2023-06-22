@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="imagebox">
+            <img src="background2.jpg" alt="background">
+        </div>
+        <div class="content-box">
+            <div class="formbox">
+                <h1>Welcome back</h1>
+                <h3>Login to your account</h3>
+                
+                <form action="/myphp.php" name="myform" method="post" onsubmit="return validateform()">
+
+                    <div class="inputbox-username" id="username">
+                        <span>Username</span>
+                        <input type="email" name="fname" placeholder="John.Snow@Gmail.com">
+                        <p id="user-error"></p>
+                       
+                    </div>
+
+                    <div class="inputbox-password" id="password">
+                        <span>Password</span>
+                        <input type="password" name="fpass" placeholder="*********">
+                        <p id="pass-error"></p>
+                    </div>
+
+                    <div class="remember">
+                        
+                        <label style="padding: 5px;"><input type="radio" name="remember"/>Remember</label><label style="float: right;margin-top: 8px;"><a  style="text-decoration: none;" href="">Forgot password ?</a></label>
+                    </div>
+
+                    <div class="inputbox-sign button">
+                       <button type="submit" class="button"  style="background-color:#00e600;;" id="login">Login Now</button>
+                    </div>
+
+                    <div class="inputbox-google">
+                        
+                        <button type="submit" class="button" style="background-color: #5900b3;;">
+                            <img width="15" height="15"  src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/> 
+                            Or Sign-in with Google</button>
+                    </div>
+
+                    <div class="register">
+                        <p style="text-align: center;">Don't have an account ?<a style="text-decoration: none;" href=""> Join today now</a></p>
+                    </div>
+
+                    
+
+                </form>
+
+                
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    
+    
+    
+    function validateform(){
+       
+        //username and password for auth
+        let final_username = "rohan@example.com";
+        let final_pass = 1234;
+
+        let user = document.forms['myform']["fname"].value;
+        let pass = document.forms['myform']["fpass"].value;
+        
+
+
+        if(final_username != user && final_pass != pass ){
+            document.getElementById("pass-error").innerHTML = "password is incorrect";
+            document.getElementById("user-error").innerHTML = "username is incorrect";
+            
+            return false
+        }
+        else if(final_pass != pass)
+        {
+              
+                document.getElementById("pass-error").innerHTML = "password is incorrect";
+                return false
+        }
+        else if(final_username != user){
+           
+           document.getElementById("user-error").innerHTML = "username is incorrect";
+            return false;
+        }
+        else{
+            location.replace("welcome.html");
+                return false;
+        }
+        
+
+        return true;
+
+        
+    }
+
+</script>
+</html>
